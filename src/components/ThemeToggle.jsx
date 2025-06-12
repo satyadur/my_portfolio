@@ -29,18 +29,27 @@ export const ThemeToggle = () => {
   };
 
   return (
-    <button
-      onClick={toggleTheme}
-      className={cn(
-        "fixed top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300",
-        "focus:outlin-hidden"
-      )}
-    >
-      {isDarkMode ? (
-        <Sun className="h-6 w-6 text-yellow-300" />
-      ) : (
-        <Moon className="h-6 w-6 text-blue-900" />
-      )}
-    </button>
-  );
+  <button
+    onClick={toggleTheme}
+    className={cn(
+      "fixed z-50 p-2 rounded-full cursor-pointer transition-all duration-300",
+      "focus:outline-none hover:bg-foreground/10",
+      "top-5 right-5",
+      "md:top-4 md:right-5",
+      "max-md:top-5 max-md:right-2",
+      // "relative overflow-hidden" // Needed for absolute positioning
+    )}
+  >
+    <div className="relative h-6 w-6">
+      <Sun className={cn(
+        "h-6 w-6 text-yellow-300 absolute transition-all duration-300",
+        isDarkMode ? "rotate-0 opacity-100" : "rotate-90 opacity-0"
+      )} />
+      <Moon className={cn(
+        "h-6 w-6 text-blue-900 dark:text-blue-200 absolute transition-all duration-300",
+        isDarkMode ? "-rotate-90 opacity-0" : "rotate-0 opacity-100"
+      )} />
+    </div>
+  </button>
+);
 };
