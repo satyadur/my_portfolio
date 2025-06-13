@@ -56,7 +56,7 @@ export const Navbar = () => {
         {/* Mobile nav */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50 mr-5 md:mr-0"
+          className="md:hidden p-2 z-50 text-primary mr-5 md:mr-0"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -64,19 +64,19 @@ export const Navbar = () => {
 
         <div
           className={cn(
-            "fixed inset-0 bg-[rgba(255,255,255,0.05)] backdrop-filter backdrop-blur-md z-40 flex flex-col items-center justify-center",
+            "fixed inset-0 bg-[rgba(255,255,255,0.05)] h-screen backdrop-filter backdrop-blur-md z-40 flex flex-col items-center justify-center",
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
           )}
         >
-          <div className="flex flex-col space-y-8 text-xl">
+          <div className="flex flex-col justify-evenly h-screen pt-10 bg-black w-full text-xl">
             {navItems.map((item, key) => (
               <a
                 key={key}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="text-primary transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
