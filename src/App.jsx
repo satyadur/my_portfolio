@@ -152,7 +152,7 @@ function App() {
           <LoaderProvider>
             {/* Global TextCursor */}
             <ClickSpark>
-              <div className="fixed inset-0 z-10 pointer-events-none">
+              <div className="fixed hidden lg:block inset-0 z-10 pointer-events-none">
                 <TextCursor
                   text="⚛️"
                   delay={0.02}
